@@ -10,9 +10,9 @@
     <div class="center">
         <header>
             <img src="assets/img/logo.png" alt="InCode Logo" class="logo">
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span id="navIcon">☰</span>
+            </button>
             <nav class="nav-menu" id="navMenu">
                 <a href="#sobre-nos">Sobre Nós</a>
                 <a href="#servicos">Serviços</a>
@@ -23,7 +23,7 @@
     </div>
     <section id="sobre-nos">
         <h2>Sobre Nós</h2>
-        <p>Somos uma equipe apaixonada por tecnologia, dedicada a criar sistemas inovadores e eficientes para nossos clientes.</p>
+        <p>A InCode é uma startup focada em inovação e soluções tecnológicas de alto impacto. Nosso objetivo é ajudar empresas a alcançarem seu potencial máximo no mundo digital, oferecendo ferramentas que aumentam a eficiência e promovem resultados sustentáveis. Com uma abordagem personalizada e uma equipe de especialistas, buscamos entender as necessidades específicas de cada cliente, criando soluções práticas e inteligentes que transformam a maneira como os negócios operam. Na InCode, acreditamos que a tecnologia deve ser uma parceira estratégica, promovendo crescimento, agilidade e inovação contínua.</p>
     </section>
 
     <section id="servicos">
@@ -77,15 +77,21 @@
         document.addEventListener('DOMContentLoaded', function() {
             const navToggle = document.getElementById('navToggle');
             const navMenu = document.getElementById('navMenu');
-            if(navToggle && navMenu) {
+            const navIcon = document.getElementById('navIcon');
+            if(navToggle && navMenu && navIcon) {
                 navToggle.addEventListener('click', function() {
                     navToggle.classList.toggle('active');
                     navMenu.classList.toggle('active');
+                    const opened = navMenu.classList.contains('active');
+                    navIcon.textContent = opened ? '✖' : '☰';
+                    navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
                 });
                 navMenu.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
                         navToggle.classList.remove('active');
                         navMenu.classList.remove('active');
+                        navIcon.textContent = '☰';
+                        navToggle.setAttribute('aria-expanded', 'false');
                     });
                 });
             }
