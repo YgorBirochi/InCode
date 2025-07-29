@@ -9,8 +9,16 @@
 <body>
     <div class="center">
         <header>
-            <h1>InCode</h1>
-            <p>Transformando ideias em soluções digitais</p>
+            <img src="assets/img/logo.png" alt="InCode Logo" class="logo">
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#sobre-nos">Sobre Nós</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#pontos">Competências</a>
+                <a href="#contato">Contato</a>
+            </nav>
         </header>
     </div>
     <section id="sobre-nos">
@@ -65,5 +73,23 @@
             <p>Desenvolvido por InCode Team</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            if(navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

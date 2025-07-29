@@ -11,6 +11,15 @@ body {
     padding-top: 90px; 
 }
 
+.p-bottom-small{
+    padding-bottom: 10px;
+}
+
+.logo {
+    width: 150px;
+    padding-bottom: 10px;
+}
+
 header {
     position: fixed;
     top: 10px;
@@ -37,6 +46,7 @@ section {
     padding: 30px 25px;
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    scroll-margin-top: 140px;
 }
 
 h2 {
@@ -66,12 +76,10 @@ ul {
     display: flex;
     flex-direction: column;
     box-shadow: 0 1px 6px rgba(108,99,255,0.07);
-    /* Garante que ambos tenham a mesma altura */
 }
 
 .pontos-lista ul {
     flex: 1;
-    /* Permite que a lista cresça igualmente */
 }
 
 .pontos-lista h3 {
@@ -143,7 +151,84 @@ footer {
     color: #b3b3b3;
 }
 
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 10px;
+    margin-top: -8px;
+    transition: all 0.3s;
+}
 
+.nav-menu a {
+    color: #6c63ff;
+    padding: 7px 18px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Hamburger menu styles */
+.nav-toggle {
+    display: none;
+    position: absolute;
+    top: 22px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    z-index: 200;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-toggle span,
+.nav-toggle span:before,
+.nav-toggle span:after {
+    display: block;
+    background: #6c63ff;
+    height: 4px;
+    width: 28px;
+    border-radius: 2px;
+    position: absolute;
+    transition: 0.3s;
+    content: '';
+}
+
+.nav-toggle span {
+    position: relative;
+}
+
+.nav-toggle span:before {
+    content: '';
+    top: -10px;
+    position: absolute;
+}
+
+.nav-toggle span:after {
+    content: '';
+    top: 10px;
+    position: absolute;
+}
+
+/* Toggle active state */
+.nav-toggle.active span {
+    background: transparent;
+}
+.nav-toggle.active span:before {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.nav-toggle.active span:after {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
 
 /* Responsividade */
 @media (max-width: 700px) {
@@ -159,5 +244,29 @@ footer {
     footer {
         font-size: 0.95rem;
         padding: 18px 0 10px 0;
+    }
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background: rgba(24, 18, 43, 0.98);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 4px 16px rgba(24,18,43,0.18);
+        padding: 18px 0 12px 0;
+        display: none;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+    header {
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 }
