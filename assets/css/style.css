@@ -7,8 +7,7 @@
 body {
     background-color: #0c081f;
     font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
-    padding-top: 90px; 
+    line-height: 1.6;   
 }
 
 .p-bottom-small{
@@ -23,7 +22,7 @@ body {
 header {
     position: fixed;
     top: 10px;
-    height: 70px;
+    height: 65px;
     left: 50%;
     transform: translateX(-50%);
     width: 90vw;
@@ -36,13 +35,22 @@ header {
     border: 1px solid #6c63ff;
     border-radius: 35px;
     box-shadow: 0 2px 16px rgba(255, 255, 255, 0.505);
-    backdrop-filter: blur(8px); /* efeito de desfoque */
+    backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px); /* suporte Safari */
+}
+
+.background-home {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75; /* leve transparência */
 }
 
 section {
     margin: 40px auto;
-    max-width: 600px;
+    max-width: 750px;
     background: #18122b;
     padding: 30px 25px;
     border-radius: 16px;
@@ -176,7 +184,6 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Hamburger menu styles */
 .nav-toggle {
     display: none;
     position: absolute;
@@ -213,7 +220,6 @@ footer {
     color: #fff;
 }
 
-/* Toggle active state */
 .nav-toggle.active span {
     background: transparent;
 }
